@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=My Product
+Comment=A pwaa-trilogy-patcher application
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/pwaa-trilogy-patcher.exe %u
+Terminal=false
+Type=Application
+Icon=pwaa-trilogy-patcher.exe
+Categories=Utility;
+StartupWMClass=pwaa-trilogy-patcher.exe
+
+ 

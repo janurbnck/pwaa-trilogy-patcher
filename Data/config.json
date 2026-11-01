@@ -1,0 +1,104 @@
+{
+    "available_versions": [
+        "0.1.1b",
+        "0.1.1a",
+        "0.1.1",
+        "orig"
+    ],
+    "unpatch_error_map": {
+        "0": "Původní soubory úspěšně vráceny.\nČeština odinstalována.",
+        "401": "Kontrolní soubor není validní.\nZálohovaná data jsou neplatná.",
+        "402": "Zálohované soubory nenalezeny.\nPůvodní soubory není možné obnovit.",
+        "403": "Zálohovací složka nenalezena.\nPůvodní soubory není možné obnovit.",
+        "404": "Nesprávný herní adresář.\nZvolte kořenový adresář hry.",
+        "405": "Zálohované soubory neodpovídají očekávaným souborům.\nPůvodní soubory není možné obnovit.",
+        "406": "Nepodařilo se zkopírovat soubor.\nZkontrolujte, že máte dostatečná oprávnění k zápisu do složky hry."
+    },
+    "patch_error_map": {
+        "0": "Patch byl úspěšně nainstalován.",
+        "101": "Zvolená verze je již nainstalována.",
+        "401": "Soubor xdelta.exe nebyl nalezen.\nZkontrolujte složku Xdelta.",
+        "402": "Nesprávný herní adresář.\nZvolte kořenový adresář hry.",
+        "403": "Aktuální verzi není možné opatchovat.\nZkuste nejdřív provést unpatch na originální hru.",
+        "404": "Verze neexistuje.\nNení možné provést patch.",
+        "405": "Patche nenalezeny.\nZkontrolujte, zda složka Patches obsahuje soubory s příponou .xdelta.",
+        "406": "Patchování skončilo neúspěšně.\nPodrobnější informace o chybě najdete v logu.",
+        "407": "Chybný soubor, neodpovídá souboru v herním adresáři.\nZkontrolujte, že je hra správně nainstalována a zvolili jste správný adresář.",
+        "408": "Jeden nebo více .xdelta souborů chybí.\nZkontrolujte složku obsahující patch.",
+        "409": "Nepodařilo se získat relativní cestu.\nZkontrolujte, že je hra správně nainstalována.",
+        "410": "Nepodařilo se zálohovat soubor.\nZkontrolujte, že máte dostatečná oprávnění k zápisu do složky hry.",
+        "411": "Nepodařilo se zkopírovat soubor.\nZkontrolujte, že máte dostatečná oprávnění k zápisu do složky hry.",
+        "412": "Nepodařilo se vytvořit dočasný adresář.\nZkontrolujte, že máte dostatečná oprávnění k zápisu.",
+        "413": "Nepodařilo se vytvořit zálohovací adresář.\nZkontrolujte, že máte dostatečná oprávnění k zápisu.",
+        "414": "Nepodařilo se vytvořit kontrolní soubor.\nZkontrolujte, že máte dostatečná oprávnění k zápisu.",
+        "501": "Chyba patcheru xdelta.\nPodrobnější informace o chybě naleznete v logu."
+    },
+    "existing_v_switcher": {
+        "orig": "orig"
+    },
+    "new_v_switcher": {
+        "0.1.1": "to_v0.1.1",
+        "0.1.1a": "to_v0.1.1a",
+        "0.1.1b": "to_v0.1.1b",
+        "0.1.2": "to_v0.1.2"
+    },
+    "expected_files": {
+        "0.1.1": [
+            "sharedassets0.assets",
+            "common_text_u.bin",
+            "option_text_u.bin",
+            "platform_text_u.bin",
+            "save_text_u.bin",
+            "system_text_u.bin",
+            "title_text_u.bin",
+            "ev0_mes_u.mdt",
+            "gs1_ba_u.bin",
+            "gs1_nolb_u.bin",
+            "gs1_note_u.bin",
+            "gs1_sel_u.bin",
+            "gs1_u.cho",
+            "sc0_text_u.mdt",
+            "sys_mes_u.mdt",
+            "frame02u.unity3d",
+            "recordu.unity3d"
+        ],
+        "0.1.1a": [
+            "chapter_name_gs1_u.bin",
+            "language_any.bin"
+        ],
+        "0.1.1b": [
+            "gallery_text_u.bin",
+            "actionstudioselector_clapperboard_text_u.unity3d",
+            "artfile_titletextu.unity3d",
+            "title_textgs1u.unity3d",
+            "actionEditor_u.mdt"
+        ],
+        "0.1.2": [
+            "sc1_0_text_u.mdt",
+            "sc1_1_text_u.mdt",
+            "sc1_2_text_u.mdt",
+            "sc1_3_text_u.mdt"
+        ]
+    },
+    "extensions": [
+        "*.bin",
+        "*.mdt",
+        "*.cho",
+        "*.assets",
+        "*.unity3d"
+    ],
+    "version_lookup": {
+        "0.1.1": "",
+        "0.1.1a": "0.1.1",
+        "0.1.1b": "0.1.1a",
+        "0.1.2": "0.1.1b"
+    },
+    "patcher_display_text": {
+        "orig": "Originální hra",
+        "error": "Žádná, špatný adresář",
+        "0.1.1": "0.1.1",
+        "0.1.1a": "0.1.1a",
+        "0.1.1b": "0.1.1b",
+        "0.1.2": "0.1.2"
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>PWAAT Patcher</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            font-size: 13px;
+        }
+
+        body {
+            margin: 0;
+            padding: 12px;
+            background: #18181b;
+            color: #e4e4e7;
+            color-scheme: dark;
+            user-select: none;
+            --wails-draggable: drag;
+            --default-contextmenu: hide;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            margin-top: 4px;
+            color: #a1a1aa;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        input, select, button {
+            --wails-draggable: no-drag;
+            background: #27272a;
+            color: #f4f4f5;
+            border: 1px solid #3f3f46;
+            border-radius: 6px;
+            padding: 6px 8px;
+            outline: none;
+        }
+
+        input {
+            flex: 1;
+            user-select: text;
+            --default-contextmenu: auto;
+        }
+
+        input:focus, select:focus {
+            border-color: #6366f1;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 6px 12px;
+        }
+
+        button:hover:not(:disabled) {
+            background: #3f3f46;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .main-action {
+            align-self: center;
+            margin-top: 12px;
+            min-width: 100px;
+            background: #4f46e5;
+            border-color: #4f46e5;
+            font-weight: 600;
+        }
+
+        .main-action:hover:not(:disabled) {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" data-file-drop-target>
+        <label for="game_folder">Herní adresář:</label>
+        <div class="input-group">
+            <input type="text" id="game_folder" readonly>
+            <button id="btn_search" type="button">Hledat</button>
+        </div>
+
+        <label for="detected_version">Detekovaná verze:</label>
+        <input type="text" id="detected_version" readonly>
+
+        <label for="version_combo">Nainstalovat verzi:</label>
+        <select id="version_combo"></select>
+
+        <button id="btn_action" class="main-action" type="button" disabled="true">Patch</button>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

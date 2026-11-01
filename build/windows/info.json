@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "1.0.0"
+	},
+	"info": {
+		"0409": {
+			"ProductVersion": "1.0.0",
+			"CompanyName": "janurbnck",
+			"FileDescription": "An installer of Czech fan translation for PWAAT",
+			"LegalCopyright": "© 2026, janurbnck",
+			"ProductName": "PWAAT Patcher",
+			"Comments": ""
+		}
+	}
+}

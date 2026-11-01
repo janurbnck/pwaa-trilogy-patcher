@@ -1,0 +1,138 @@
+name: Build Patcher (Windows & Linux)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore cached binary
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: bin/PWAAT_Patcher_Windows.exe
+          key: binary-windows-${{ hashFiles('**/*.go', 'go.mod', 'go.sum', 'Taskfile.yml', 'build/**', 'frontend/src/**', 'frontend/index.html', 'frontend/package.json', 'frontend/package-lock.json', 'frontend/vite.config.ts', 'frontend/tsconfig.json', 'frontend/bindings/**') }}
+
+      - name: Setup Go
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Setup Node.js
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Wails v3 CLI
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0
+
+      - name: Build Windows binary
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: wails3 task windows:build
+
+      - name: Upload Windows binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: PWAAT_Patcher_Windows
+          path: bin/PWAAT_Patcher_Windows.exe
+
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore cached binary
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: bin/PWAAT_Patcher_Linux
+          key: binary-linux-${{ hashFiles('**/*.go', 'go.mod', 'go.sum', 'Taskfile.yml', 'build/**', 'frontend/src/**', 'frontend/index.html', 'frontend/package.json', 'frontend/package-lock.json', 'frontend/vite.config.ts', 'frontend/tsconfig.json', 'frontend/bindings/**') }}
+
+      - name: Install Linux GTK4 & WebKitGTK 6.0 dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-4-dev libwebkitgtk-6.0-dev build-essential pkg-config
+
+      - name: Setup Go
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Setup Node.js
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Wails v3 CLI
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0
+
+      - name: Build Linux binary
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: wails3 task linux:build
+
+      - name: Upload Linux binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: PWAAT_Patcher_Linux
+          path: bin/PWAAT_Patcher_Linux
+
+  package-release:
+    name: Package Release Bundle
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Windows binary
+        uses: actions/download-artifact@v4
+        with:
+          name: PWAAT_Patcher_Windows
+          path: .
+
+      - name: Download Linux binary
+        uses: actions/download-artifact@v4
+        with:
+          name: PWAAT_Patcher_Linux
+          path: .
+
+      - name: Set executable permissions for Linux
+        run: |
+          chmod +x PWAAT_Patcher_Linux
+          if [ -f Tools/xdelta ]; then chmod +x Tools/xdelta; fi
+
+      - name: Upload complete release package
+        uses: actions/upload-artifact@v4
+        with:
+          name: PWAAT_Patcher_Release
+          path: |
+            PWAAT_Patcher_Windows.exe
+            PWAAT_Patcher_Linux
+            README.md
+            Data/
+            Patches/
+            Tools/

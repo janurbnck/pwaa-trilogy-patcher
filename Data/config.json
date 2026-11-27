@@ -1,5 +1,6 @@
 {
     "available_versions": [
+        "0.1.2",
         "0.1.1b",
         "0.1.1a",
         "0.1.1",
@@ -77,7 +78,26 @@
             "sc1_0_text_u.mdt",
             "sc1_1_text_u.mdt",
             "sc1_2_text_u.mdt",
-            "sc1_3_text_u.mdt"
+            "sc1_3_text_u.mdt",
+            "etc00au.unity3d",
+            "etc00bu.unity3d",
+            "etc012u.unity3d",
+            "bg02du.unity3d",
+            "bg02eu.unity3d",
+            "bg030u.unity3d",
+            "testimonyu.unity3d",
+            "court_record_03_pcu.unity3d",
+            "court_record_02u.unity3d",
+            "court_record_02_xboxu.unity3d",
+            "court_record_02_pcu.unity3d",
+            "animationset_etc002au.unity3d",
+            "animationset_etc002bu.unity3d",
+            "etc014u.unity3d",
+            "Assembly-CSharp.dll",
+            "itb000u.unity3d",
+            "itb00eu.unity3d",
+            "itb001u.unity3d"
+
         ]
     },
     "extensions": [
@@ -85,7 +105,8 @@
         "*.mdt",
         "*.cho",
         "*.assets",
-        "*.unity3d"
+        "*.unity3d",
+        "*.dll"
     ],
     "version_lookup": {
         "0.1.1": "",

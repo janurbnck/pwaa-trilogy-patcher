@@ -2,13 +2,6 @@ Pokud máte nainstalovanou češtinu 0.1.1, je potřeba nejprve provést čistou
 
 
 
-Pro Linux uživatele:
-
-* Pokud patcher nemůžete spustit, je třeba nejprve přidat práva pro spuštění pomocí příkazu "chmod +x PWAAT\_Patcher\_Linux"
-* Stejný postup může být potřeba také pro nástroj xdelta, který najdete v adresáři Tools, v něm pak spustíte příkaz "chmod +x xdelta"
-
-
-
 Instrukce pro nainstalování češtiny:
 
 
@@ -34,6 +27,13 @@ Instrukce pro odinstalování češtiny:
 
 
 
+Pro Linux uživatele:
+
+* Pokud patcher nemůžete spustit, je třeba nejprve přidat práva pro spuštění pomocí příkazu "chmod +x PWAAT\_Patcher\_Linux"
+* Stejný postup může být potřeba také pro nástroj xdelta, který najdete v adresáři Tools, v něm pak spustíte příkaz "chmod +x xdelta"
+
+
+
 Pokud někde nastal problém, podrobnější informace najdete v logu (soubor patcher\_info.log).
 
 
@@ -41,6 +41,8 @@ Pokud někde nastal problém, podrobnější informace najdete v logu (soubor pa
 ### ----------------------------------------
 
 Použitá ikona patcheru: https://www.flaticon.com/free-icon/maintenance_7247972
+Použitý font pro bubliny: https://www.deviantart.com/maplerose/art/Ace-Attorney-Objection-font-257614594 ve vektorové úpravě https://gbatemp.net/threads/release-ace-attorney-objection-font.524574/
+
 
 Autor překladu: Jan Urbančík (Electricman37)
 
